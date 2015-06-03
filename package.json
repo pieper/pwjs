@@ -1,0 +1,25 @@
+{
+  "name": "pwjs",
+  "version": "0.1.0",
+  "description": "People-driven web",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peopledrivenweb/pwjs.git"
+  },
+  "keywords": [
+    "pwjs",
+    "http",
+    "framework",
+    "web"
+  ],
+  "author": "Afshin Mehrabani <afshin.meh@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/peopledrivenweb/pwjs/issues"
+  },
+  "homepage": "https://github.com/peopledrivenweb/pwjs#readme"
+}
