@@ -5,6 +5,7 @@ var app = new Pw();
 app.get('/', 'home.html');
 app.get('/how-it-works', 'how-it-works.html');
 app.get('/author', 'author.html');
+app.get('/faq', 'faq.html');
 
 //expressjs settings
 app.app.set('views', __dirname + '/views');
