@@ -25,7 +25,7 @@
       var client = new WebTorrent()
       var hash = route.hash;
 
-      client.add(magnetUri, function (torrent) {
+      client.add(hash, function (torrent) {
         var file = torrent.files[0];
 
         file.getBuffer(function (err, buffer) {
