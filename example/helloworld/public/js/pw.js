@@ -22,30 +22,17 @@
     var route = getRoute(ctx.path);
 
     if (route != null) {
-      window.WEBTORRENT_ANNOUNCE = ["wss://tracker.webtorrent.io"];
-
       var client = new WebTorrent()
-      var magnetUri = route.hash;
+      var hash = route.hash;
 
-      console.log('start getting ' + magnetUri)
       client.add(magnetUri, function (torrent) {
-        // Got torrent metadata!
-        console.log('Torrent info hash:', torrent.infoHash)
+        var file = torrent.files[0];
 
-        torrent.files.forEach(function (file) {
-          // Get a url for each file
-          file.getBlobURL(function (err, url) {
-            if (err) throw err
-
-              // Add a link to the page
-              var a = document.createElement('a')
-              a.download = file.name
-              a.href = url
-              a.textContent = 'Download ' + file.name
-              document.body.appendChild(a)
-          })
-        })
-      })
+        file.getBuffer(function (err, buffer) {
+          var container = document.querySelector('#container');
+          container.innerHTML = buffer.toString();
+        });
+      });
     }
   };
 
