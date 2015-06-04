@@ -1,1 +1,1 @@
-web: node example/helloworld/index.js
+web: DEBUG=pw node example/helloworld/index.js
