@@ -59,6 +59,7 @@ Pw.prototype.listen = function (port, fn) {
   var handler = new Handler();
   var routes = this.route.get();
 
+  global.WEBTORRENT_ANNOUNCE = [ 'wss://tracker.webtorrent.io' ]
   this.app.get('/pw/route.js', handler.routes.bind(this));
   this.app.get('*', handler.general.bind(this));
 
@@ -72,7 +73,7 @@ Pw.prototype.listen = function (port, fn) {
     debug('requesting to seed "%s"', route.partial);
 
     (function (deferred, route) {
-      client.seed(path.join(self.app.get('views'), route.partial), function (torrent) {
+      client.seed(path.join(self.app.get('views'), route.partial), { announce: ['wss://tracker.webtorrent.io'] }, function (torrent) {
         debug('started seeding %s - %s', torrent.infoHash, torrent.files[0].name);
         self.route.addHash(route.path, torrent.infoHash);
 

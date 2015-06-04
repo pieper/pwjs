@@ -22,6 +22,8 @@
     var route = getRoute(ctx.path);
 
     if (route != null) {
+      window.WEBTORRENT_ANNOUNCE = ["wss://tracker.webtorrent.io"];
+
       var client = new WebTorrent()
       var magnetUri = route.hash;
 
