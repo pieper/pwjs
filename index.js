@@ -14,7 +14,7 @@ module.exports = Pw;
 var express = require('express');
 var Route = require('./lib/route');
 var Handler = require('./lib/handler');
-var WebTorrent = require('webtorrent');
+var WebTorrent = require('webtorrent-hybrid');
 var path = require('path');
 var debug = require('debug')('pw');
 var Q = require('q');
@@ -64,9 +64,6 @@ Pw.prototype.listen = function (port, fn) {
 
   var client = new WebTorrent();
   var promises = [];
-
-  global.WRTC = require('wrtc')
-  global.WEBTORRENT_ANNOUNCE = [ 'wss://tracker.webtorrent.io' ]
 
   for (var i in routes) {
     var route = routes[i];
