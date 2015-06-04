@@ -19,10 +19,12 @@
   };
 
   function handler (ctx) {
+    loading(true);
+
     var route = getRoute(ctx.path);
 
     if (route != null) {
-      var client = new WebTorrent()
+      var client = new WebTorrent();
       var hash = route.hash;
 
       client.add(hash, function (torrent) {
@@ -31,6 +33,7 @@
         file.getBuffer(function (err, buffer) {
           var container = document.querySelector('#container');
           container.innerHTML = buffer.toString();
+          loading(false);
         });
       });
     }
@@ -47,6 +50,16 @@
     };
 
     return null;
+  };
+
+  function loading (enable) {
+    if (enable) {
+      NProgress.start();
+      var container = document.querySelector('#container');
+      container.innerHTML = '<div class="one-half column" style="margin-top: 25%"><h4>Please wait. Fetching...</h4></div>';
+    } else {
+      NProgress.done();
+    }
   };
 
   //start watching
