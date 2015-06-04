@@ -65,6 +65,9 @@ Pw.prototype.listen = function (port, fn) {
   var client = new WebTorrent();
   var promises = [];
 
+  global.WRTC = require('wrtc')
+  global.WEBTORRENT_ANNOUNCE = [ 'wss://tracker.webtorrent.io' ]
+
   for (var i in routes) {
     var route = routes[i];
     var deferred = Q.defer();
