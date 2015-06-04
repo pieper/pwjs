@@ -2,7 +2,7 @@ var Pw = require('../../index.js');
 var express = require('express');
 
 var app = new Pw();
-app.get('/home', 'home.html');
+app.get('/', 'home.html');
 app.get('/home2', 'home2.html');
 
 //expressjs settings
