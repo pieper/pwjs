@@ -21,5 +21,13 @@
   "bugs": {
     "url": "https://github.com/peopledrivenweb/pwjs/issues"
   },
-  "homepage": "https://github.com/peopledrivenweb/pwjs#readme"
+  "homepage": "https://github.com/peopledrivenweb/pwjs#readme",
+  "dependencies": {
+    "q": "1.4.x",
+    "ejs": "2.3.x",
+    "debug": "2.2.x",
+    "express": "4.12.x",
+    "require-analyzer": "0.5.x",
+    "webtorrent": "0.48.x"
+  }
 }
