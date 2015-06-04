@@ -86,6 +86,7 @@ Pw.prototype.listen = function (port, fn) {
 
   Q.all(promises).then(function () {
      debug('routes torrent are ready');
+     debug('running webserver on port %s', port);
      self.app.listen(port, typeof (fn) == 'function' ? fn.bind() : null);
   });
 };
