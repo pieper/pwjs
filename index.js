@@ -24,7 +24,6 @@ function Pw (app) {
 
   //expressjs default setup
   this.app.engine('html', require('ejs').renderFile);
-  this.app.use(express.static('public'));
 
   this.route = new Route();
   this.opts = {};
