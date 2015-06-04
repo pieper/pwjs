@@ -3,7 +3,8 @@ var express = require('express');
 
 var app = new Pw();
 app.get('/', 'home.html');
-app.get('/home2', 'home2.html');
+app.get('/how-it-works', 'how-it-works.html');
+app.get('/author', 'author.html');
 
 //expressjs settings
 app.app.set('views', __dirname + '/views');
